@@ -1,5 +1,6 @@
 package com.example.blogapp.controllers;
 
+import com.example.blogapp.models.Post;
 import com.example.blogapp.models.User;
 import com.example.blogapp.services.UserService;
 
@@ -11,15 +12,21 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/users")
+
 public class UserController {
+
+    @Autowired
     private UserService userService;
 
     @PostMapping
-    public User createUser(User user) {
+    public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
+
+    
+    
     @GetMapping
-    public ResponseEntity List<User> getUsers() {
+    public ResponseEntity<List<User>> getUsers() {
         List<User> user = userService.getUsers();
         return ResponseEntity.ok(user);
     }

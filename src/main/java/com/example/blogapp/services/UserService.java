@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
+    
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
@@ -19,8 +20,8 @@ public class UserService {
         return userRepository.save(user);
     }
 
-     public List<User>  {
-        return userRepository.find();
+     public List<User> getUsers() {
+        return userRepository.findAll();
     }
     // Other methods for user management
 }
