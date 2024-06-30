@@ -32,8 +32,8 @@ public class PostService {
         postRepository.save(post);
     }
 
-    public List<Post>  {
-        return postRepository.find();
+    public List<Post> getPosts() {
+        return postRepository.findAll();
     }
 
     // Other methods for post management

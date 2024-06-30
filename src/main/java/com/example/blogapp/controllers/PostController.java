@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/post")
 public class PostController {
+    
+    @Autowired
     private PostService postService;
 
     @PostMapping
-    public Post createPost(Post post) {
+    public Post createPost(@RequestBody Post post) {
         return postService.createPost(post);
     }
 
@@ -23,7 +25,7 @@ public class PostController {
     }
 
     @GetMapping
-    public ResponseEntity List<Post> getPosts() {
+    public ResponseEntity<List<Post>> getPosts() {
         List<Post> posts = postService.getPosts();
         return ResponseEntity.ok(posts);
 
